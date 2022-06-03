@@ -28,18 +28,18 @@ const cats = [
 
 mongoose.connect(process.env.MONGO_URL)
   .then(x => console.log(`Connected to ${x.connection.name}`))
-  // .then(() => {
-  //   return Cat.create({ name: 'Kitty', age: 'five', color: true, sickness: false })
-  // })
-  // .then((caca) => {
-  //   console.log('Created:', caca);
-  // })
-  // .then(() => {
-  //   return Cat.insertMany(cats)
-  // })
-  // .then((cats) => {
-  //   console.log(cats)
-  // })
+  .then(() => {
+    return Cat.create({ name: 'Kitty', age: 'five', color: true, sickness: false })
+  })
+  .then((cat) => {
+    console.log('Created:', cat);
+  })
+  .then(() => {
+    return Cat.insertMany(cats)
+  })
+  .then((cats) => {
+    console.log(cats)
+  })
   .then(() => {
     const cat = Cat.findOne({ name: 'Hobbes' });
     return cat;
